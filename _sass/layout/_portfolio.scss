@@ -1,0 +1,39 @@
+.portfolio {
+  position: relative;
+  overflow: hidden;
+
+  img {
+    transition: transform .5s ease;
+  }
+
+  &:hover {
+    .portfolio__title {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      width: auto;
+      height: auto;
+      background: rgba(0,0,0,0.6);
+    }
+
+    img {
+      transform: scale(1.2)
+    }
+  }
+}
+
+.portfolio__title {
+  position: absolute;
+  height: 0;
+  width: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  a {
+    color: #fff;
+  }
+}

@@ -1,0 +1,33 @@
+.header {
+    padding: 12px;
+    position: relative;
+    z-index: 10;
+    border-bottom: 1px solid #000;
+
+    @include respond-to(768) {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+.logo {
+    float: left;
+    margin: 0;
+
+    &:before {
+        display: block;
+        content: 'PS';
+
+        @include respond-to(540) {
+            display: none;
+        }
+    }
+
+    span {
+        display: none;
+
+        @include respond-to(540) {
+            display: block;
+        }
+    }
+}
