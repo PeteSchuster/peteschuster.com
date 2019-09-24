@@ -8,17 +8,10 @@ html {
   font-size: 100%;
   overflow-y: scroll;
   box-sizing: border-box;
+  font-family: Georgia, serif;
 }
 
 body {
-  @include word-break();
-  @include font-size($base-font-size, 16);
   background: #fff;
-  line-height: 1.6;
-  color: $text-color;
-  font-family: $primary-font-stack;
-
-  @include respond-to(480) {
-    @include font-size(20, 16);
-  }
+  line-height: 1.5;
 }

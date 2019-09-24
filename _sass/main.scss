@@ -3,6 +3,76 @@
 //external libraries and frameworks
 @import 'vendor';
 
-@import 'utils';
 @import 'base';
-@import 'layout';
+
+.page-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+
+  @media only screen and (min-width: 48em) {
+    padding: 0 75px;
+  }
+}
+
+.page-section__content {
+  flex: 1;
+
+  p {
+    @media only screen and (min-width: 48em) {
+      padding-left: 50%;
+    }
+  }
+}
+
+.content-image {
+  text-align: right;
+  margin-bottom: 50px;
+
+  img {
+    width: 600px;
+  }
+}
+
+.nav {
+  position: fixed;
+  left: 50px;
+  bottom: 50px;
+
+  a {
+    display: block;
+  }
+}
+
+.page-header {
+  display: none;
+
+  @media only screen and (min-width: 48em) {
+    display: block;
+  }
+}
+
+.yellow {
+  background: #FFCF38;
+  color: #000;
+
+  a {
+    color: #000;
+  }
+}
+.green {
+  background: #00ffa2;
+  color: #004466;
+
+  a {
+    color: #004466;
+  }
+}
+.tan {
+  background: #f3ebb6;
+  color: #10164c;
+  a {
+    color: #10164c;
+  }
+}
