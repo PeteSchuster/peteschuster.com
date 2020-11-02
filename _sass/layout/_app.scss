@@ -1,0 +1,9 @@
+.page-app {
+  padding: 0 12px;
+
+  @media only screen and (min-width: 48em) {
+    padding: 0 24px;
+    max-width: 768px;
+    margin: 0 auto;
+  }
+}

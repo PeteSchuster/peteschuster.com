@@ -1,78 +1,35 @@
-//Vendors
-//contains all the CSS files from
-//external libraries and frameworks
-@import 'vendor';
-
-@import 'base';
-
-.page-section {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  padding: 0 20px;
-
-  @media only screen and (min-width: 48em) {
-    padding: 0 75px;
-  }
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
 }
 
-.page-section__content {
-  flex: 1;
+@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
+  $u1: unit($min-vw);
+  $u2: unit($max-vw);
+  $u3: unit($min-font-size);
+  $u4: unit($max-font-size);
 
-  p {
-    @media only screen and (min-width: 48em) {
-      padding-left: 50%;
+  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+    & {
+      font-size: $min-font-size;
+      @media screen and (min-width: $min-vw) {
+        font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+      }
+      @media screen and (min-width: $max-vw) {
+        font-size: $max-font-size;
+      }
     }
   }
 }
 
-.content-image {
-  text-align: right;
-  margin-bottom: 50px;
+$min_width: 320px;
+$max_width: 1200px;
+$min_font: 16px;
+$max_font: 24px;
 
-  img {
-    width: 600px;
-  }
-}
+$mod_1: 1.2; // mobile
+$mod_2: 1.5; // desktop
 
-.nav {
-  position: fixed;
-  left: 50px;
-  bottom: 50px;
+@import 'vendor';
+@import 'base';
+@import 'layout';
 
-  a {
-    display: block;
-  }
-}
-
-.page-header {
-  display: none;
-
-  @media only screen and (min-width: 48em) {
-    display: block;
-  }
-}
-
-.yellow {
-  background: #FFCF38;
-  color: #000;
-
-  a {
-    color: #000;
-  }
-}
-.green {
-  background: #00ffa2;
-  color: #004466;
-
-  a {
-    color: #004466;
-  }
-}
-.tan {
-  background: #f3ebb6;
-  color: #10164c;
-  a {
-    color: #10164c;
-  }
-}

@@ -1,39 +1,32 @@
 h1,
 .heading1 {
+  font-size: $mod_1 * $mod_1 * $mod_1 * $mod_1 * 1rem; 
+  @include fluid-type($min_width, $max_width, $mod_1*$mod_1*$mod_1 *$min_font, $mod_2*$mod_2*$mod_2 *$min_font);
   margin: .5em 0;
-  font-size: 16vw;
   letter-spacing: -.0125em;
   font-weight: 400;
   line-height: .9em;
 }
 
-@media only screen and (min-width: 48em) {
-  h1,
-  .heading1 {
-    font-size: 12vw;
-  }
-}
-
 h2,
 .heading2 {
-  font-size: 3rem;
-  font-size: calc(28px + (48 - 28) * ((100vw - 320px)/ (1680 - 320)));
+  font-size: $mod_1*$mod_1*$mod_1 *1rem; 
+  @include fluid-type($min_width, $max_width, $mod_1*$mod_1*$mod_1 *$min_font, $mod_2*$mod_2*$mod_2 *$min_font);
   line-height: 1.25em;
   font-weight: 400;
+  margin: .5em 0;
 }
 
 h3,
 .heading3 {
-  font-size: 2rem;
-  font-size: calc(24px + (32 - 24) * ((100vw - 320px)/ (1680 - 320)));
+  font-size: $mod_1*$mod_1 *1rem;
+  @include fluid-type($min_width, $max_width, $mod_1*$mod_1 *$min_font, $mod_2*$mod_2 *$min_font);
   line-height: 1.15em;
+  margin: .5em 0;
 }
 
 p {
   margin-bottom: 1.25em;
-  font-size: 1.5rem;
-  font-size: calc(20px + (24 - 20) * ((100vw - 320px)/ (1680 - 320)));
-  line-height: 1.35em;
 }
 
 p + p {
@@ -62,12 +55,3 @@ li {
   margin: 0;
   padding: 0;
 }
-
-.text-left    { text-align: left; }
-.text-right   { text-align: right; }
-.text-right--at-768   {
-  @media only screen and (min-width: 48em) {
-    text-align: right;
-  }
-}
-.text-center  { text-align: center; }
