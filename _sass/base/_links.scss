@@ -1,12 +1,22 @@
 a {
-  color: #0d6efd;
+  color: #007bff;
   text-decoration: underline;
 }
 a:hover {
-  color: #0a58ca;
+  color: #007bff;
 }
 
 a:not([href]):not([class]), a:not([href]):not([class]):hover {
   color: inherit;
   text-decoration: none;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  a {
+    color: #e83e8c;
+    text-decoration: underline;
+  }
+  a:hover {
+    color: #e83e8c;
+  }
 }
