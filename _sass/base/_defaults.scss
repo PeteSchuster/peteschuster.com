@@ -1,3 +1,15 @@
+:root {
+  --color-background: #fff;
+  --color-text: #000;
+  --color-link: #007bff;
+
+  @media screen and (prefers-color-scheme: dark) {
+    --color-background: #222;
+    --color-text: #fff;
+    --color-link: #e83e8c;
+  }
+}
+
 *,
 *:before,
 *:after {
@@ -11,13 +23,7 @@ html {
 }
 
 body {
-  background: #fff;
+  background-color: var(--color-background);
+  color: var(--color-text);
   line-height: 1.5;
-}
-
-@media screen and (prefers-color-scheme: dark) {
-  body {
-    background-color: #222;
-    color: #fff;
-  }
 }
