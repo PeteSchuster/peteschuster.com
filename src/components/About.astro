@@ -1,0 +1,79 @@
+---
+import Section from './Section.astro';
+---
+
+<Section id="about" title="About">
+  <div class="about-grid">
+    <div class="about-image fade-in">
+      <img
+        src="/images/about.jpg"
+        alt="Pete Schuster"
+        width="765"
+        height="843"
+        loading="lazy"
+      />
+    </div>
+    <div class="about-text fade-in">
+      <h2>Hey, I'm Pete.</h2>
+      <p>
+        I'm a freelance JavaScript developer based in the Philadelphia area, focused on building
+        fast, accessible, and thoughtful web experiences. I care about performance, clean code,
+        and making things that feel good to use.
+      </p>
+      <p>
+        When I'm not writing code, you'll probably find me checking out new music, watching
+        movies, or gaming. I believe the best work comes from curiosity and a genuine love for
+        the craft.
+      </p>
+      <p class="about-cta">
+        <a href="#contact">Let's work together &rarr;</a>
+      </p>
+    </div>
+  </div>
+</Section>
+
+<style>
+  .about-grid {
+    display: grid;
+    gap: var(--space-8);
+    align-items: center;
+  }
+
+  @media (min-width: 768px) {
+    .about-grid {
+      grid-template-columns: 1fr 1.2fr;
+      gap: var(--space-10);
+    }
+  }
+
+  .about-image img {
+    border-radius: var(--radius-lg);
+    width: 100%;
+    max-width: 400px;
+  }
+
+  @media (min-width: 768px) {
+    .about-image img {
+      max-width: 100%;
+    }
+  }
+
+  h2 {
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-5);
+  }
+
+  p {
+    color: var(--color-text-secondary);
+    font-size: var(--text-lg);
+    line-height: var(--leading-normal);
+    margin-bottom: var(--space-4);
+  }
+
+  .about-cta a {
+    font-weight: 500;
+    font-size: var(--text-lg);
+  }
+</style>

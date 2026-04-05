@@ -1,0 +1,89 @@
+---
+import type { Project } from '../data/projects';
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+---
+
+<div class="project-card fade-in">
+  <h3>{project.title}</h3>
+  <p>{project.description}</p>
+  <div class="project-tags">
+    {project.tags.map((tag) => (
+      <span class="tag">{tag}</span>
+    ))}
+  </div>
+  {(project.url || project.github) && (
+    <div class="project-links">
+      {project.url && project.url !== '#' && (
+        <a href={project.url} target="_blank" rel="noopener noreferrer">
+          Live Site &rarr;
+        </a>
+      )}
+      {project.github && project.github !== '#' && (
+        <a href={project.github} target="_blank" rel="noopener noreferrer">
+          Source &rarr;
+        </a>
+      )}
+    </div>
+  )}
+</div>
+
+<style>
+  .project-card {
+    padding: var(--space-6);
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    transition: transform var(--transition-base), box-shadow var(--transition-base),
+      border-color var(--transition-base);
+  }
+
+  .project-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--color-border-hover);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  h3 {
+    font-size: var(--text-xl);
+    font-weight: 600;
+    margin-bottom: var(--space-3);
+  }
+
+  p {
+    color: var(--color-text-secondary);
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
+    margin-bottom: var(--space-5);
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-bottom: var(--space-5);
+  }
+
+  .tag {
+    font-size: var(--text-xs);
+    padding: var(--space-1) var(--space-2);
+    background: var(--color-accent-subtle);
+    color: var(--color-accent);
+    border-radius: var(--radius-sm);
+    font-weight: 500;
+  }
+
+  .project-links {
+    display: flex;
+    gap: var(--space-4);
+  }
+
+  .project-links a {
+    font-size: var(--text-sm);
+    font-weight: 500;
+  }
+</style>
